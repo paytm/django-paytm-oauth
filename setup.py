@@ -28,4 +28,7 @@ setup(
         'Framework :: Django :: 1.8',
         'Topic :: Internet :: WWW/HTTP',
     ],
+    install_requires=[
+        'requests==2.7.0',
+    ],
 )
