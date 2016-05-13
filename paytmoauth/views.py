@@ -10,9 +10,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 def paytm_oauth(request):
     code = request.GET.get('code', None)
-    url = settings.OAUTH_PROVIDER_URL + settings.ACCESS_TOKEN_URL_ENDPOINT
-
-    authorization_header = base64.b64encode(settings.CLIENT_ID + b":" + settings.CLIENT_SECRET)
+    url = settings.PAYTMOAUTH_PROVIDER_URL + settings.PAYTMOAUTH_AUTHENTICATION_ENDPOINT
+    header_value = settings.PAYTMOAUTH_CLIENT_ID + ':' + settings.PAYTMOAUTH_CLIENT_SECRET
+    authorization_header = base64.b64encode(header_value.encode('ascii'))
     authorization_header = str(authorization_header,  'ascii')
     if code:
         headers = {
@@ -22,8 +22,8 @@ def paytm_oauth(request):
         payload = {
             "grant_type":"authorization_code",
             "code": code,
-            "client_id":settings.CLIENT_ID,
-            "scope": settings.SCOPE
+            "client_id":settings.PAYTMOAUTH_CLIENT_ID,
+            "scope": settings.PAYTMOAUTH_SCOPE
         }
         try:
             response = requests.post(url, headers=headers, data=payload)
@@ -33,7 +33,7 @@ def paytm_oauth(request):
         
         if response and response.status_code == 200:
             partial_response = json.loads(response.text)
-            url = settings.OAUTH_PROVIDER_URL + settings.USER_ACCESS_URL_ENDPOINT
+            url = settings.PAYTMOAUTH_PROVIDER_URL + settings.PAYTMOUATH_RESOURCE_ACCESS_ENDPOINT
             headers = {
                 'session_token': partial_response.get('access_token')
             }
