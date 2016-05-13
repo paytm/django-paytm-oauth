@@ -14,13 +14,13 @@ Paytm oauth is consumer side implementation of Oauth 2.0. The steps involved in 
 
 * __Authentication Grant__ : User enters his credentials and then the server authenticates the user. As a result of this authorization, an authorization token is passed. This is authorization grant which is passed to the application. The `PAYTMOAUTH_REDIRECT_URL` receives this response.
 
-* __Authorization Request__ : Now after the application has received user's authorization grant, it authorizes itself by passing its id(CLIENT_ID) and secret(CLIENT_SECRET). The url endpoint here will be `PAYTMOAUTH_AUTHENTICATION_ENDPOINT`. This is a server to server call where in authorization header is passed which contains the credentials of the client. Along with the header, following paramEters are passed in the body of the post request
+* __Authorization Request__ : Now after the application has received user's authorization grant, it authorizes itself by passing its id(CLIENT_ID) and secret(CLIENT_SECRET). The url endpoint here will be `PAYTMOAUTH_AUTHENTICATION_ENDPOINT`. This is a server to server call where in authorization header is passed which contains the credentials of the client. Along with the header, following parameters are passed in the body of the post request
     - grant_type
     - code
     - client_id
     - scope
 
-    Here in __grant_type__ is generally `authorization_code` and the value of __code__ is the authorization token received from the previous step. This way the authorization server knows that the application is currently talking about which user. This is a server to server call where in no user is involved.
+    Here __grant_type__ is generally `authorization_code` and the value of __code__ is the authorization token received from the previous step. This way the authorization server knows that the application is currently talking about which user. This is a server to server call where in no user is involved.
 
 * __Authorization Grant__ : The authorization server authorizes the request by the application. It authenticates whether the app is genuine or not by validating given client id and client secret. The server passes an access_token in the response. This response is received at `PAYTMOAUTH_REDIRECT_URL`.
 
