@@ -1,5 +1,7 @@
 # django-paytm-oauth
 
+[![PyPI version](https://badge.fury.io/py/paytm-oauth.svg)](https://badge.fury.io/py/paytm-oauth)
+
 django-paytm-oauth is a Django based application for consuming Oauth 2 implementation of Paytm.
 
 ##Flow
