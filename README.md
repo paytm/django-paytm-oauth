@@ -32,6 +32,11 @@ Paytm oauth is consumer side implementation of Oauth 2.0. The steps involved in 
 
 ##Installation
 
+Through pip
+```
+pip install paytm-oauth
+```
+
 django-paytm-oauth is available as a git repository. It can be installed by
 
 ```
