@@ -13,7 +13,7 @@ def paytm_oauth(request):
     url = settings.PAYTMOAUTH_PROVIDER_URL + settings.PAYTMOAUTH_AUTHENTICATION_ENDPOINT
     header_value = settings.PAYTMOAUTH_CLIENT_ID + ':' + settings.PAYTMOAUTH_CLIENT_SECRET
     authorization_header = base64.b64encode(header_value.encode('ascii'))
-    authorization_header = str(authorization_header,  'ascii')
+    authorization_header = str(authorization_header)
     if code:
         headers = {
                     "Authorization":  "Basic " + authorization_header,

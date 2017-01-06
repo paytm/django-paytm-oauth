@@ -81,6 +81,8 @@ This url should be white-listed. In the above case `oauth/callback` needs to be 
 
 Through this a context variable namely `paytmoauth_login_url` will be available in the templates.
 
+* After login page will be redirected to LOGIN_REDIRECT_URL 
+
 ##Settings
 
 The following variables needs to be defined in the settings
