@@ -33,6 +33,6 @@ setup(
     author_email='shrey.agarwal@paytm.com, reachtotj@gmail.com',
     classifiers=CLASSIFIERS,
     install_requires=[
-        'requests==2.7.0',
+        'requests==2.20.0',
     ],
 )
